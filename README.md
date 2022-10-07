@@ -229,9 +229,30 @@ docker build --build-arg=FRAPPE_BRANCH=version-12 --build-arg=GITHUB_OWNER=msf4-
 ```
 
 ### 3. Push images to Docker Hub
-1. [Steps to create a Docker Hub, and push images to it.](https://docs.docker.com/get-started/04_sharing_app/)
-2. Possible troubleshoot:
-    1. When you face `denied: requested access to the resource is denied` when pushing images, run `docker login` and enter your credentials. Then push image again.
+1. Tag the images bulilt from Step 2 with the format: 
+`docker tag <Image Name>:<Version> <Docker Hub Username>/<Image Name>:<Version>`
+
+For nginx:
+```shell
+docker tag custom-erpnext-nginx:version-12 shrdc/custom-erpnext-nginx:version-12
+```
+
+For worker:
+```shell
+docker tag custom-erpnext-worker:version-12 shrdc/custom-erpnext-worker:version-12
+```
+
+Reference: [Steps to create a Docker Hub, and push images to it.](https://docs.docker.com/get-started/04_sharing_app/)
+
+2. To push to Docker Hub, run `docker push` with the tagged name created before. 
+
+```shell
+docker push shrdc/custom-erpnext-nginx:version-12
+docker push shrdc/custom-erpnext-worker:version-12
+```
+
+3. Possible troubleshoot:
+When you face `denied: requested access to the resource is denied` when pushing images, run `docker login` and enter your credentials. Then push image again.
 
 ### 4. (Optional) Configure `env-example`
 1. You may need to change the `DOCKER_USERNAME` in `env-example` to the username of the Docker Hub account in which you have pushed your images to.
