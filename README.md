@@ -18,52 +18,44 @@
 <br>
 
 # ERPNext Home Page
-![ERPNext Home Page](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/ERPNext.png)
+![ERPNext Home Page](https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration/blob/master/images/ERPNext%20Home%20Page.png)
 
 <br>
 
-# Frepple Integration
-![Frepple Integration](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/Frepple.png)
+# Frepple Integration 
+![Frepple Integration](https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration/blob/master/images/Frepple%20Integration.PNG)
 
 <br>
 
 # Barcode Scanning System
-![Barcode Scanning System](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/Barcode%20Scanning%20System.png)
+![Barcode Scanning System](https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration/blob/master/images/Barcode%20Scanning%20System.png)
 
 <br>
 
-# Autocount
-![Barcode Scanning System](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/Autocount.png)
+## For Frepple User
+In order to utilise the full integration between ERPNext and Frepple, you will need a running instance of Frepple software. To install Frepple software in both Windows and Linux refer to [this document](https://docs.google.com/document/d/1P4U1rZszydwy2LmVAuC4lvYPl-dFw86LSC8Fz8zRsIE/edit?usp=sharing).
 
 <br>
 
 ## For ERPNext User
 
-### 1. List of possible ERPNext docker setup
-- Production Setup: Single Server Single Bench (follow the guide below)
-- [Production Setup: Single Server Multi Bench](https://github.com/chiajunshen/shrdc_frappe_docker/blob/main/docs/multi-bench.md)
-- [Production Setup: Multi Server Docker Swarm](https://github.com/chiajunshen/shrdc_frappe_docker/blob/main/docs/docker-swarm.md)
-- [Production Setup: Multi Server Kubernetes](https://helm.erpnext.com/)
-- [Development Setup: Source code access with VSCode](https://github.com/chiajunshen/shrdc_frappe_docker/tree/main/development)
-
-### 2. Integrated Resource Planning System IRPS
+### 1. Integrated Resource Planning System IRPS
 1. Prerequisites:
     - Windows: Docker Desktop
     - Ubuntu: Docker Engine, Docker Compose
     - Mac: Docker Desktop
 
-2. Frappe Apps included:
+2. The installation of this release includes the following:
     - [ERPNext Version 12](https://github.com/frappe/erpnext)
     - [Metabase Integration](https://github.com/chiajunshen/shrdc_frappe_metabase)
     - [Telegram Integration](https://github.com/chiajunshen/shrdc_erpnext_telegram)
     - [Enhanced Frepple Integration](https://github.com/msf4-0/ERPNext-Frepple-Enhanced-Integration)
     - [Barcode Scanning System](https://github.com/leexy0/barcode_shrdc)
-    - [Autocount](https://github.com/msf4-0/ERPNext-Autocount-Integration)
 
 3. For Windows & MacOS user, start from `Section 3`.
 4. For Ubuntu user, start from `Section 4`.
 
-### 3. Pre-Setup: Windows/MacOS
+### 2. Pre-Setup: Windows/MacOS
 1. The setup guide is tested to work on `Windows 10`, `Ubuntu 18.04` and `macOS Mojave 10.14.6`
 
 2. For Windows and MacOS, create a folder.
@@ -92,45 +84,80 @@
 ### 5. Setup
 
 1. Clone this repo.
-    - `git clone https://github.com/msf4-0/IRPS-Autocount-Integration.git`
+    - `git clone https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration.git`
 
 2. Navigate to the cloned folder.
-    - `cd IRPS-Autocount-Integration`
+    - `cd IRPS-Enhanced-Frepple-Integration`
 
-3. In `enx-example`, you can change the `ERPNEXT_SERVER_PORT` and `MARIADB_SERVER_PORT` variables. Copy environment variables from the `env-example` file into `.env` file.
-    - Upon successful setup, you can access ERPNext via port number `ERPNEXT_SERVER_PORT`
-    - For Metabase Integration, you would need to connect to Mariadb via `MARIADB_SERVER_PORT`
-    - `cp env-example .env`
+3. In `enx-example`, you can change the variables that would be used in this installation process to your preference such as the following:
+    - Server port to host ERPNext,`ERPNEXT_SERVER_PORT`. Default is `8000`.
+    - Database port,`MARIADB_SERVER_PORT`. Default is `3306`.
+    - Site name `SITE_NAME`. Default is `custom-erpnext-nginx`.
+    
+    Note: 
+    - You can leave these variables as it's provided if all the specified ports are not occupied.
+    - Upon successful setup, you can access ERPNext via port number `ERPNEXT_SERVER_PORT`.
+    - For Metabase Integration, you would need to connect to Mariadb via `MARIADB_SERVER_PORT`.
 
-4. Start all the docker containers. Note: Replace `<project_name>` to your preference.
-    - `docker-compose -p <project_name> up -d`
+4. Copy environment variables from the `env-example` file into `.env` file using this command `cp env-example .env`.
+
+5. Start all the docker containers by this command `docker-compose -p <project_name> up -d`.
+    
+    Note: 
+    - Replace `<project_name>` to your preference.
     - For example, `docker-compose -p project1 up -d`
 
-5. Monitor the site creation progress by logging the `<project_name>_site-creator_1` container.
-    - `docker logs <project_name>_site-creator_1 -f`
-    - For example, `docker logs project1_site-creator_1 -f`
-    - If you face `no such container` error, try with `docker logs project1-site-creator-1 -f`
+6. Monitor the site creation progress by logging into the `<project_name>-site-creator-1` container. To do this step, use this command `docker logs <project_name>-site-creator-1 -f`. 
+    
+    Note:
+    - Replace `<project_name>` to the same project name as in step 4.
+    - For example, `docker logs project1-site-creator-1 -f`.
+    - If you face `no such container` error, try with `docker logs project1-site-creator_1 -f` or `docker logs project1_site-creator_1 -f`.
 
-6. After the `<project_name>_site-creator_1` container display `Scheduler is disabled`, you can open `Google Chrome` and access ERPNext via `localhost:8000` or `127.0.0.1:8000`.
+7. After the `<project_name>-site-creator-1` container display `Scheduler is disabled`, login to `<project_name>-erpnext-python-1` container. Use `docker exec -it --user root <project_name>-erpnext-python-1 /bin/bash` to login into this container as a root user.
+    
+    Note:
+    - Replace `<project_name>` to the same project name selected in step 4.
+    - For example, `docker exec -it --user root project1-erpnext-python-1 /bin/bash`.
+    - If you face `no such container` error, try with `docker exec -it --user root project1-erpnext-python_1 /bin/bash` or `docker exec -it --user root project1_erpnext-python_1 /bin/bash`.
+ 
+ 
+8. Once you login in into `<project_name>-erpnext-python-1` container, by default, you will be in the `~:/home/frappe/frappe-bench/sites` directory. Navigate out to `~:/home/frappe/frappe-bench` directory by typing `cd ..`.
 
-7. Default credentials.
+9. Now, apply the new changes in Frepple app by running this command `bench --site <site_name> migrate`.
+    
+    Note:
+    - Replace `<site_name>` to the same name as specified in the .env file. Refer to step 3 and 4.
+    - For example, `bench --site custom-erpnext-nginx migrate`
+
+10. After the process `Compiling Python files...` is finished, you will be back in the `~:/home/frappe/frappe-bench` directory. This means the `bench migrate` process is completed. Type `exit` to exit from `<project_name>-erpnext-python-1` container.
+
+11. Now, you can open any browser such as `Google Chrome` and access ERPNext via `http://localhost:<ERPNext_Server_Port>` or `http://<Your_IP_address>:<ERPNext_Server_Port>`.
+    
+    Note:
+    - Type the selected ERPNext port number in `<ERPNext_Server_Port>` selected in step 4. 
+    - For example, `http://localhost:8000` or `http://127.0.0.1:8000`.
+
+12. Default credentials.
     - Username: `Administrator`
     - Password: `admin`
 
 ### 6. Stopping Docker Containers
-1. To stop all the docker containers related to your `<peoject-name`> project
-    - In the `Integrated-Resource-Planning-System-IRPS` directory, run `docker-compose -p <project-name> stop`
-    - For example, `docker-compose -p project1 stop`
+1. To stop all the docker containers related to your `<peoject-name`> project:
+    - Open a Powershell terminal, navigate to `IRPS-Enhanced-Frepple-Integration` folder.
+    - Run `docker-compose -p <project-name> stop`. 
+    - For example, `docker-compose -p project1 stop`.
 
 ### 7. Starting Docker Containers
-1. To start up all the docker containers related to your `<peoject-name`> project
-    - In the `Integrated-Resource-Planning-System-IRPS` directory, run `docker-compose -p <project-name> start`
-    - For example, `docker-compose -p project1 start`
+1. To start up all the docker containers related to your `<peoject-name`> project:
+    - Open a Powershell terminal, navigate to `IRPS-Enhanced-Frepple-Integration` folder.
+    - Run `docker-compose -p <project-name> start`. 
+    - For example, `docker-compose -p project1 start`.
 
 ### 8. Deleting Docker Containers
-1. To remove all the docker containers related to your `<peoject-name`> project
-    - Run `docker-compose -p <project-name> down`
-    - Run `docker-compose -p <project-name> down -v` to remove the related Docker Volume
+1. To remove all the docker containers related to your `<peoject-name`> project:
+    - Open a Powershell terminal, navigate to `IRPS-Enhanced-Frepple-Integration` folder.
+    - Run `docker-compose -p <project-name> down` or run `docker-compose -p <project-name> down -v` to remove the related Docker Volume.
     - For example, `docker-compose -p project1 down -v`
 
 ## Update Custom App
@@ -152,6 +179,8 @@
     2. You have a running instance of ERPNext in docker production container in which you want to restore with the backup files.
 2. [Restore](https://docs.google.com/document/d/1yG2N1isESsdtDdfH3aHykIrgD6lnVOLzK0zThKLreHA/edit?usp=sharing)
 
+<br>
+
 ## For Developer
 - [Reference: Customizing your own shrdc custom frappe docker](https://docs.google.com/document/d/1XxOYM_qhZ0RGI60YM82XHOkEzrn8ywXC98i354Donjc/edit?usp=sharing)
 
@@ -165,7 +194,7 @@ Example file uses following apps:
 
 - [Metabase Integration](https://github.com/chiajunshen/shrdc_frappe_metabase)
 - [Telegram Integration](https://github.com/chiajunshen/shrdc_erpnext_telegram)
-- [Frepple Integration](https://github.com/Drayang/ERPNext-Frepple)
+- [Enhanced Frepple Integration](https://github.com/msf4-0/ERPNext-Frepple-Enhanced-Integration)
 - [Barcode Scanning System](https://github.com/leexy0/barcode_shrdc)
 
 ### 2. Build images
