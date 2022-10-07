@@ -202,6 +202,7 @@ Example file uses following apps:
 - [Telegram Integration](https://github.com/chiajunshen/shrdc_erpnext_telegram)
 - [Enhanced Frepple Integration](https://github.com/msf4-0/ERPNext-Frepple-Enhanced-Integration)
 - [Barcode Scanning System](https://github.com/leexy0/barcode_shrdc)
+- [Autocount](https://github.com/msf4-0/ERPNext-Autocount-Integration)
 
 ### 2. Build images
 
