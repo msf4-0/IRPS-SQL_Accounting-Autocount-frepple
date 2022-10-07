@@ -18,17 +18,22 @@
 <br>
 
 # ERPNext Home Page
-![ERPNext Home Page](https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration/blob/master/images/ERPNext%20Home%20Page.png)
+![ERPNext Home Page](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/ERPNext.png)
 
 <br>
 
 # Frepple Integration 
-![Frepple Integration](https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration/blob/master/images/Frepple%20Integration.PNG)
+![Frepple Integration](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/Frepple.png)
 
 <br>
 
 # Barcode Scanning System
-![Barcode Scanning System](https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration/blob/master/images/Barcode%20Scanning%20System.png)
+![Barcode Scanning System](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/Barcode%20Scanning%20System.png)
+
+<br>
+
+# Autocount
+![Autocount](https://github.com/msf4-0/IRPS-Autocount-Integration/blob/master/images/Autocount.png)
 
 <br>
 
@@ -51,6 +56,7 @@ In order to utilise the full integration between ERPNext and Frepple, you will n
     - [Telegram Integration](https://github.com/chiajunshen/shrdc_erpnext_telegram)
     - [Enhanced Frepple Integration](https://github.com/msf4-0/ERPNext-Frepple-Enhanced-Integration)
     - [Barcode Scanning System](https://github.com/leexy0/barcode_shrdc)
+    - [Autocount](https://github.com/msf4-0/ERPNext-Autocount-Integration)
 
 3. For Windows & MacOS user, start from `Section 3`.
 4. For Ubuntu user, start from `Section 4`.
@@ -84,10 +90,10 @@ In order to utilise the full integration between ERPNext and Frepple, you will n
 ### 5. Setup
 
 1. Clone this repo.
-    - `git clone https://github.com/msf4-0/IRPS-Enhanced-Frepple-Integration.git`
+    - `git clone https://github.com/msf4-0/IRPS-Autocount-Integration.git`
 
 2. Navigate to the cloned folder.
-    - `cd IRPS-Enhanced-Frepple-Integration`
+    - `cd IRPS-Autocount-Integration`
 
 3. In `enx-example`, you can change the variables that would be used in this installation process to your preference such as the following:
     - Server port to host ERPNext,`ERPNEXT_SERVER_PORT`. Default is `8000`.
