@@ -45,6 +45,7 @@ services:
 
   erpnext-python:
     image: ${DOCKER_USERNAME}/custom-erpnext-worker:${ERPNEXT_VERSION}
+    #image: shrdc/erpnext-python:version-12
     restart: on-failure
     environment:
       - MARIADB_HOST=${MARIADB_HOST}
