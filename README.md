@@ -56,8 +56,9 @@
     - [ERPNext Version 12](https://github.com/frappe/erpnext)
     - [Metabase Integration](https://github.com/chiajunshen/shrdc_frappe_metabase)
     - [Telegram Integration](https://github.com/chiajunshen/shrdc_erpnext_telegram)
-    - [Frepple Integration](https://github.com/Drayang/ERPNext-Frepple)
+    - [Enhanced Frepple Integration](https://github.com/msf4-0/ERPNext-Frepple-Enhanced-Integration)
     - [Barcode Scanning System](https://github.com/leexy0/barcode_shrdc)
+    - [Autocount](https://github.com/msf4-0/ERPNext-Autocount-Integration)
 
 3. For Windows & MacOS user, start from `Section 3`.
 4. For Ubuntu user, start from `Section 4`.
@@ -91,10 +92,10 @@
 ### 5. Setup
 
 1. Clone this repo.
-    - `git clone https://github.com/msf4-0/Integrated-Resource-Planning-System-IRPS.git`
+    - `git clone https://github.com/msf4-0/IRPS-Autocount-Integration.git`
 
 2. Navigate to the cloned folder.
-    - `cd Integrated-Resource-Planning-System-IRPS`
+    - `cd IRPS-Autocount-Integration`
 
 3. In `enx-example`, you can change the `ERPNEXT_SERVER_PORT` and `MARIADB_SERVER_PORT` variables. Copy environment variables from the `env-example` file into `.env` file.
     - Upon successful setup, you can access ERPNext via port number `ERPNEXT_SERVER_PORT`
