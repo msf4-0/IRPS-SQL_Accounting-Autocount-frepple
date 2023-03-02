@@ -17,6 +17,7 @@ RUN /install_frappe ${FRAPPE_BRANCH} && \
   # Install required apps with following command
   # /install_app <app_name> <repo> <app_branch>
   /install_app metabase_integration https://github.com/${GITHUB_OWNER}/ERPNext-Metabase-Integration master && \
+  /install_app sql_accounting_software https://github.com/${GITHUB_OWNER}/ERPNext-SQL-Accounting-Integration main && \
   /install_app erpnext_telegram_integration https://github.com/${GITHUB_OWNER}/ERPNext-Telegram-Integration master && \
   /install_app frepple https://github.com/${GITHUB_OWNER}/ERPNext-Frepple-Enhanced-Integration main && \
   /install_app barcode_shrdc https://github.com/${GITHUB_OWNER}/ERPNext-Barcode-Integration master && \
@@ -29,7 +30,7 @@ COPY --from=0 /home/frappe/frappe-bench/sites/ /var/www/html/
 COPY --from=0 /rsync /rsync
 
 # Append list of installed to apps.txt
-RUN echo -n "metabase_integration\nerpnext_telegram_integration\nbarcode_shrdc\nfrepple\nautocount" >> /var/www/html/apps.txt
+RUN echo -n "metabase_integration\nerpnext_telegram_integration\nbarcode_shrdc\nfrepple\nautocount\nsql_accounting_software" >> /var/www/html/apps.txt
 
 VOLUME [ "/assets" ]
 
